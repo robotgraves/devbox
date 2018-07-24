@@ -1,0 +1,13 @@
+- name: install packer
+  hosts: localhost
+  sudo: yes
+  tasks:
+  - name: get packer's binary
+    get_url:
+      url: "https://releases.hashicorp.com/packer/1.2.1/packer_1.2.1_linux_amd64.zip"
+      dest: "/tmp/packer.zip"
+
+  - name: unzip the binary
+    unarchive:
+      dest: "/usr/local/bin"
+      src: "/tmp/packer.zip"
