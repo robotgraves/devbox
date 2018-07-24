@@ -1,0 +1,13 @@
+- name: install vagrant
+  hosts: localhost
+  sudo: yes
+  tasks:
+  - name: get vagrant's binary
+    get_url:
+      url: "https://releases.hashicorp.com/vagrant/2.1.2/vagrant_2.1.2_linux_amd64.zip"
+      dest: "/tmp/vagrant.zip"
+
+  - name: unzip the binary
+    unarchive:
+      dest: "/usr/local/bin"
+      src: "/tmp/vagrant.zip"
